@@ -126,6 +126,18 @@ def cross_validation(inputs, labels, init_model):
         scores.append(measure_model_perf(labels[test_index], pred_labels))
     return scores
 
+class Percep(torch.nn.Module):
+
+    def __init__(self,p):
+
+        super(MyPS,self).__init__()
+
+        self.layer1 = torch.nn.Linear(4,1)
+
+        self.layer2 = torch.nn.Linear(1,4)
+
+        self.ft1 = torch.nn.Sigmoid()
+
 
 inputs, labels = load_data()
 inputs = preprocess_data(inputs)
